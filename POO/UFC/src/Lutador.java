@@ -4,12 +4,9 @@ public class Lutador {
     private String nome;
     private String nacionalidade;
     private int idade;
-    private float altura;
-    private float peso;
+    private float altura, peso;
     private String categoria;
-    private int vitorias;
-    private int derrotas;
-    private int empates;
+    private int vitorias, derrotas, empates;
 
     //Construtor
     public Lutador(String nome, String nacionalidade, int idade, float altura, float peso, int v, int d, int e) {
@@ -17,7 +14,7 @@ public class Lutador {
         this.nacionalidade = nacionalidade;
         this.idade = idade;
         this.altura = altura;
-        this.peso = peso;
+        setPeso(peso);
         this.vitorias = v;
         this.derrotas = d;
         this.empates = e;
@@ -58,25 +55,25 @@ public class Lutador {
     }
     public void setPeso(float peso) {
         this.peso = peso;
-        setCategoria();
+        this.categoria = setCategoria();
     }
 
     public String getCategoria() {
         return categoria;
     }
-    public void setCategoria() {
+    private String setCategoria() {
         if (this.peso <= 52.5f) {
-            this.categoria = "Inválido";
+            return "Inválido";
         } else if (this.peso <= 65.7f) {
-            this.categoria = "Peso-Pena";
+            return "Peso-Pena";
         } else if (this.peso <= 70.3f) {
-            this.categoria = "Peso-Leve";
+            return "Peso-Leve";
         } else if (this.peso <= 83.9f) {
-            this.categoria = "Peso-Médio";
+            return "Peso-Médio";
         } else if (this.peso <= 120.2f) {
-            this.categoria = "Peso-Pesado";
+            return "Peso-Pesado";
         } else {
-            this.categoria = "Inválido";
+            return "Inválido";
         }
     }
 
@@ -117,7 +114,7 @@ public class Lutador {
     }
     public void status() {
         System.out.println( 
-            getNome() + " é um " + getCategoria() + 
+            "\n" + getNome() + " é um " + getCategoria() + 
             "\n" + getVitorias() + " triunfos" +
             "\n" + getDerrotas() + " derrotas" +
             "\n" + getEmpates() + " empates"
