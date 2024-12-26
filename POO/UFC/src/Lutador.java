@@ -12,13 +12,12 @@ public class Lutador {
     private int empates;
 
     //Construtor
-    public Lutador(String nome, String nacionalidade, int idade, float altura, float peso, String categoria, int v, int d, int e) {
+    public Lutador(String nome, String nacionalidade, int idade, float altura, float peso, int v, int d, int e) {
         this.nome = nome;
         this.nacionalidade = nacionalidade;
         this.idade = idade;
         this.altura = altura;
         this.peso = peso;
-        this.categoria = categoria;
         this.vitorias = v;
         this.derrotas = d;
         this.empates = e;
@@ -69,13 +68,13 @@ public class Lutador {
         if (this.peso <= 52.5f) {
             this.categoria = "Inválido";
         } else if (this.peso <= 65.7f) {
-            this.categoria = "Pena";
+            this.categoria = "Peso-Pena";
         } else if (this.peso <= 70.3f) {
-            this.categoria = "Leve";
+            this.categoria = "Peso-Leve";
         } else if (this.peso <= 83.9f) {
-            this.categoria = "Médio";
+            this.categoria = "Peso-Médio";
         } else if (this.peso <= 120.2f) {
-            this.categoria = "Pesado";
+            this.categoria = "Peso-Pesado";
         } else {
             this.categoria = "Inválido";
         }
@@ -117,15 +116,20 @@ public class Lutador {
         );
     }
     public void status() {
-
+        System.out.println( 
+            getNome() + " é um " + getCategoria() + 
+            "\n" + getVitorias() + " triunfos" +
+            "\n" + getDerrotas() + " derrotas" +
+            "\n" + getEmpates() + " empates"
+            );
     }
     public void ganharLuta() {
-        setVitorias(vitorias++);
+        setVitorias(this.vitorias++);
     }
     public void perderLuta() {
-        setDerrotas(derrotas++);
+        setDerrotas(this.derrotas++);
     }
     public void empatarLuta() {
-        setEmpates(empates++);
+        setEmpates(this.empates++);
     }
 }
