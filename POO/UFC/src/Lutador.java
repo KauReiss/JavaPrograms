@@ -64,8 +64,6 @@ public class Lutador {
     private String setCategoria() {
         if (this.peso <= 52.5f) {
             return "Inválido";
-        } else if (this.peso <= 65.7f) {
-            return "Peso-Pena";
         } else if (this.peso <= 70.3f) {
             return "Peso-Leve";
         } else if (this.peso <= 83.9f) {

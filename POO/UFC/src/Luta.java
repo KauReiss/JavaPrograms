@@ -34,10 +34,10 @@ public class Luta {
     }
     
     public Boolean marcarLuta(Lutador l1, Lutador l2) {
-        if (l1.getCategoria() == l1.getCategoria() && l1 != l2) {
+        if (l1.getCategoria() == l2.getCategoria() && l1 != l2) {
             this.aprovada = true;
-            setDesafiado(l1);
-            setDesafiante(l2);
+            setDesafiante(l1);
+            setDesafiado(l2);
             return aprovada;
         } else {
             return aprovada;
@@ -45,26 +45,26 @@ public class Luta {
     }
     public void lutar() {
         if (this.aprovada == true) {
-            System.out.println(" O desafiante: \n ----------------------------- \n ");
+            System.out.println("         O desafiante: \n ----------------------------- ");
             desafiante.apresentar();
-            System.out.println("\n ---------------------------------- \n ~~~~~~~~~~~~ VERSUS ~~~~~~~~~~~~ \n");
-            System.out.println(" O desafiado: \n ----------------------------- \n ");
+            System.out.println("\n ~~~~~~~~~~ VERSUS ~~~~~~~~~~ \n");
+            System.out.println("         O desafiado: \n ----------------------------- ");
             desafiado.apresentar();
             double vencedor = (Math.random()) * 10;
             if(vencedor <= 3) {
-                System.out.println(" \n ==================================== \n E o vencedor da luta é o ");
-                desafiante.getNome();
-                System.out.print(" !!! \n ====================================");
                 desafiante.ganharLuta();
                 desafiado.perderLuta();
+                System.out.println(" \n ==================================== \n E o vencedor da luta é o -> " + desafiante.getNome());
+                System.out.println(" Somando agora " + desafiante.getVitorias() + " triunfos !!! \n ====================================");
+                
             } else if ( vencedor <= 7) {
-                System.out.println(" \n ==================================== \n E o vencedor da luta é o -> ");
-                desafiado.getNome();
-                System.out.print(" !!! \n ====================================");
                 desafiado.ganharLuta();
                 desafiante.perderLuta();
+                System.out.println(" \n ==================================== \n E o vencedor da luta é o -> " + desafiado.getNome());
+                System.out.println(" > Somando agora " + desafiado.getVitorias() + " triunfos < \n ====================================");
+                
             } else {
-                System.out.println(" \n ==================================== \n Tivemos um EMPATE !!! \n ====================================");
+                System.out.println(" \n ==================================== \n         Tivemos um EMPATE !!! \n ====================================");
                 desafiado.empatarLuta();
                 desafiante.empatarLuta();
             }
