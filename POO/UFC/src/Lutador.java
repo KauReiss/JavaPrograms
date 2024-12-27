@@ -114,19 +114,19 @@ public class Lutador {
     }
     public void status() {
         System.out.println( 
-            "\n" + getNome() + " é um " + getCategoria() + 
-            "\n" + getVitorias() + " triunfos" +
-            "\n" + getDerrotas() + " derrotas" +
-            "\n" + getEmpates() + " empates"
+            "\n " + getNome() + " é um " + getCategoria() + 
+            "\n " + getVitorias() + " triunfos" +
+            "\n " + getDerrotas() + " derrotas" +
+            "\n " + getEmpates() + " empates"
             );
     }
     public void ganharLuta() {
-        setVitorias(this.vitorias++);
+        setVitorias(++this.vitorias);
     }
     public void perderLuta() {
-        setDerrotas(this.derrotas++);
+        setDerrotas(++this.derrotas);
     }
     public void empatarLuta() {
-        setEmpates(this.empates++);
+        setEmpates(++this.empates);
     }
 }
