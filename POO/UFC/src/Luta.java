@@ -35,7 +35,7 @@ public class Luta {
     
     public Boolean marcarLuta(Lutador l1, Lutador l2) {
         if (l1.getCategoria() == l2.getCategoria() && l1 != l2) {
-            this.aprovada = true;
+            setAprovada(true);
             setDesafiante(l1);
             setDesafiado(l2);
             return aprovada;
@@ -54,19 +54,19 @@ public class Luta {
             if(vencedor <= 3) {
                 desafiante.ganharLuta();
                 desafiado.perderLuta();
-                System.out.println(" \n ==================================== \n E o vencedor da luta é o -> " + desafiante.getNome());
-                System.out.println(" Somando agora " + desafiante.getVitorias() + " triunfos !!! \n ====================================");
+                System.out.println(" \n ==================================== \n E o vencedor da luta é o -> " + this.desafiante.getNome());
+                System.out.println(" Somando agora " + this.desafiante.getVitorias() + " triunfos !!! \n ====================================");
                 
             } else if ( vencedor <= 7) {
                 desafiado.ganharLuta();
                 desafiante.perderLuta();
-                System.out.println(" \n ==================================== \n E o vencedor da luta é o -> " + desafiado.getNome());
-                System.out.println(" > Somando agora " + desafiado.getVitorias() + " triunfos < \n ====================================");
+                System.out.println(" \n ==================================== \n E o vencedor da luta é o -> " + this.desafiado.getNome());
+                System.out.println(" > Somando agora " + this.desafiado.getVitorias() + " triunfos < \n ====================================");
                 
             } else {
                 System.out.println(" \n ==================================== \n         Tivemos um EMPATE !!! \n ====================================");
-                desafiado.empatarLuta();
-                desafiante.empatarLuta();
+                this.desafiado.empatarLuta();
+                this.desafiante.empatarLuta();
             }
         } else {
             System.out.println(" A luta não pode acontecer!");
