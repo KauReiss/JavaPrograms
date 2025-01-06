@@ -61,9 +61,9 @@ public class Livro implements Publicacao {
     public void detalhes(){
         System.out.println(" Livro: " + this.titulo + "\n Autor: " + this.autor + "\n Total de páginas: " + this.totPaginas + ".");
         if (this.aberto == true) {
-            System.out.println("-> Está aberto e em posse do leitor " + this.leitor + ".");
+            System.out.println("-> Está aberto e em posse do leitor " + this.leitor.getNome() + ".\n");
         } else {
-            System.out.println("-> Está fechado e em posse do leitor " + this.leitor + ".");
+            System.out.println("-> Está fechado e em posse do leitor " + this.leitor.getNome() + ".\n");
         }
     }
     
@@ -78,7 +78,7 @@ public class Livro implements Publicacao {
     @Override
     public void fechar() {
         if (this.aberto == false) {
-            System.out.println("O livro" + this.titulo + " já está fechado!");
+            System.out.println("O livro " + this.titulo + " já está fechado!");
         } else {
             this.aberto = false;
         }
