@@ -1,3 +1,5 @@
+import java.util.Random;
+
 public class Luta {
     private Lutador desafiado;
     private Lutador desafiante;
@@ -51,12 +53,19 @@ public class Luta {
             System.out.println("         O desafiado: \n ----------------------------- ");
             desafiado.apresentar();
             double vencedor = (Math.random()) * 10;
+            Random random = new Random();
+            rounds = random.nextInt(6) + 1;
             if(vencedor <= 3) {
                 desafiante.ganharLuta();
                 desafiado.perderLuta();
                 System.out.println(" \n ==================================== \n E o vencedor da luta é o -> " + this.desafiante.getNome());
-                System.out.println(" Somando agora " + this.desafiante.getVitorias() + " triunfos !!! \n ====================================");
-                
+                if (rounds == 6) {
+                    System.out.println(" Uma vitória vinda da decisão dos juízes ao final da luta");
+                } else {
+                    System.out.println(" Com uma vitória por nocaute no round " + rounds);
+                }
+                System.out.println(" " + this.desafiante.getNome() + " soma agora " + this.desafiante.getVitorias() + " triunfos !!! \n ====================================");
+            
             } else if ( vencedor <= 7) {
                 desafiado.ganharLuta();
                 desafiante.perderLuta();
