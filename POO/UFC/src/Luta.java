@@ -1,10 +1,12 @@
 import java.util.Random;
 
 public class Luta {
+
+    //Atributos
     private Lutador desafiado;
     private Lutador desafiante;
     private int rounds;
-    private Boolean aprovada = false;
+    private Boolean aprovada = false; //A luta precisa ser aprovada através do método 'marcarLuta()'
 
 
     public Lutador getDesafiado() {
@@ -31,12 +33,14 @@ public class Luta {
     public Boolean getAprovada() {
         return aprovada;
     }
-    public void setAprovada(Boolean aprovada) {
+    private void setAprovada(Boolean aprovada) {
         this.aprovada = aprovada;
     }
     
     public Boolean marcarLuta(Lutador l1, Lutador l2) {
-        if (l1.getCategoria() == l2.getCategoria() && l1 != l2) {
+
+        //Se os lutadores forem da mesma categoria, a luta será marcada (return true)
+        if (l1.getCategoria() == l2.getCategoria() && l1 != l2) { 
             setAprovada(true);
             setDesafiante(l1);
             setDesafiado(l2);
@@ -46,31 +50,49 @@ public class Luta {
         }
     }
     public void lutar() {
+
+        //Verificação se o atributo aprovada é igual a true, para a luta acontecer
         if (this.aprovada == true) {
+
+            //Apresentação dos lutadores
             System.out.println("         O desafiante: \n ----------------------------- ");
             desafiante.apresentar();
             System.out.println("\n ~~~~~~~~~~ VERSUS ~~~~~~~~~~ \n");
             System.out.println("         O desafiado: \n ----------------------------- ");
             desafiado.apresentar();
+
+            //Sorteio de um número ramdomico para definir o resultado da luta
             double vencedor = (Math.random()) * 10;
+
+            //Número randomico para ser apresentado em qual round foi encerrada a luta
             Random random = new Random();
             rounds = random.nextInt(6) + 1;
+            
             if(vencedor <= 3) {
                 desafiante.ganharLuta();
                 desafiado.perderLuta();
                 System.out.println(" \n ==================================== \n E o vencedor da luta é o -> " + this.desafiante.getNome());
+                
+                //A luta tem 5 rounds, se sair o numero 6 para a variável rounds, quer dizer que luta foi até o final, sem nocaute
                 if (rounds == 6) {
                     System.out.println(" Uma vitória vinda da decisão dos juízes ao final da luta");
                 } else {
                     System.out.println(" Com uma vitória por nocaute no round " + rounds);
                 }
-                System.out.println(" " + this.desafiante.getNome() + " soma agora " + this.desafiante.getVitorias() + " triunfos !!! \n ====================================");
+                System.out.println(" > " + this.desafiante.getNome() + " soma agora " + this.desafiante.getVitorias() + " triunfos < \n ====================================");
             
             } else if ( vencedor <= 7) {
                 desafiado.ganharLuta();
                 desafiante.perderLuta();
                 System.out.println(" \n ==================================== \n E o vencedor da luta é o -> " + this.desafiado.getNome());
-                System.out.println(" > Somando agora " + this.desafiado.getVitorias() + " triunfos < \n ====================================");
+                
+                //A luta tem 5 rounds, se sair o numero 6 para a variável rounds, quer dizer que luta foi até o final, sem nocaute
+                if (rounds == 6) {
+                    System.out.println(" Uma vitória vinda da decisão dos juízes ao final da luta.");
+                } else {
+                    System.out.println(" Com uma vitória por nocaute no round " + rounds);
+                }
+                System.out.println(" > " + this.desafiado.getNome() + " soma agora " + this.desafiado.getVitorias() + " triunfos < \n ====================================");
                 
             } else {
                 System.out.println(" \n ==================================== \n         Tivemos um EMPATE !!! \n ====================================");
@@ -78,6 +100,8 @@ public class Luta {
                 this.desafiante.empatarLuta();
             }
         } else {
+
+            //A luta não está aprovada
             System.out.println(" A luta não pode acontecer!");
         }
     }

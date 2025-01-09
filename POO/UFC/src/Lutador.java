@@ -18,7 +18,6 @@ public class Lutador {
         this.vitorias = v;
         this.derrotas = d;
         this.empates = e;
-
     }
 
     // Getters e Setters
@@ -55,13 +54,15 @@ public class Lutador {
     }
     public void setPeso(float peso) {
         this.peso = peso;
-        this.categoria = setCategoria();
+        this.categoria = setCategoria(); //Já pegar o peso e setar a categoria do lutador
     }
 
     public String getCategoria() {
         return categoria;
     }
     private String setCategoria() {
+        
+        //A partir do peso ser estabelecido a categoria do lutador
         if (this.peso <= 52.5f) {
             return "Inválido";
         } else if (this.peso <= 70.3f) {
@@ -98,6 +99,8 @@ public class Lutador {
 
     //Métodos
     public void apresentar() {
+
+        //Apresentação completa do lutador
         System.out.println(
         "\n Lutador: " + getNome() + 
         "\n Nacionalidade: " + getNacionalidade() + 
@@ -111,6 +114,8 @@ public class Lutador {
         );
     }
     public void status() {
+
+        //Apresentação resumida do lutador
         System.out.println( 
             "\n " + getNome() + " é um " + getCategoria() + 
             "\n " + getVitorias() + " triunfos" +
