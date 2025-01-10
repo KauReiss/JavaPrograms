@@ -9,6 +9,7 @@ public class Luta {
     private Boolean aprovada = false; //A luta precisa ser aprovada através do método 'marcarLuta()'
 
 
+    //Getters e Setters
     public Lutador getDesafiado() {
         return desafiado;
     }
@@ -37,6 +38,8 @@ public class Luta {
         this.aprovada = aprovada;
     }
     
+
+    //Métodos
     public Boolean marcarLuta(Lutador l1, Lutador l2) {
 
         //Se os lutadores forem da mesma categoria, a luta será marcada (return true)

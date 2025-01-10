@@ -12,8 +12,9 @@ public class Main {
 
 
         Luta luta01 = new Luta();
-        luta01.marcarLuta(l[2], l[3]);
+        luta01.marcarLuta(l[1], l[0]);
         luta01.lutar();
+        
 
 
 
