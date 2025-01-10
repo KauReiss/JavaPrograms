@@ -42,8 +42,8 @@ public class Luta {
     //Métodos
     public Boolean marcarLuta(Lutador l1, Lutador l2) {
 
-        //Se os lutadores forem da mesma categoria, forem diferentes e do mesmo sexo, a luta será marcada (return true)
-        if (l1.getCategoria().equals(l2.getCategoria()) && l1 != l2 && l1.getSexo().equals(l2.getSexo())) {          
+        //Se os lutadores forem da mesma categoria, forem diferentes, do mesmo sexo e não estiver Inválido na categoria, a luta será marcada (return true)
+        if (l1.getCategoria().equals(l2.getCategoria()) && l1 != l2 && l1.getSexo().equals(l2.getSexo()) && !l1.getCategoria().equals("Inválido")) {          
             setAprovada(true);
             setDesafiante(l1);
             setDesafiado(l2);

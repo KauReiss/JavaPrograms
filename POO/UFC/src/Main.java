@@ -13,16 +13,22 @@ public class Main {
         Lutador f1 = new Lutador("Ronda Rousey", "EUA", "Feminino", 37, 1.71f, 61, 8, 0, 2);
         Lutador f2 = new Lutador("Amanda Nunes", "Brasil", "Feminino", 36, 1.71f, 61, 12, 2, 1);
 
-        Luta lf = new Luta();
-        lf.marcarLuta(f1, f2);
-        lf.lutar();
+
+        System.out.println("       < PRIMEIRA LUTA >");
+        Luta lutaf = new Luta();
+        lutaf.marcarLuta(f1, f2);
+        lutaf.lutar();
+        f1.status();
+        f2.status();
         
 
 
-
-        // Luta luta01 = new Luta();
-        // luta01.marcarLuta(l[1], l[0]);
-        // luta01.lutar();
+        System.out.println("\n       < SEGUNDA LUTA >");
+         Luta luta01 = new Luta();
+         luta01.marcarLuta(m[1], m[0]);
+         luta01.lutar();
+         m[0].status();
+         m[1].status();
         
 
 
