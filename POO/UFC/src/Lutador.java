@@ -2,16 +2,17 @@ public class Lutador {
 
     //Atributos
     private String nome;
-    private String nacionalidade;
+    private String nacionalidade, sexo;
     private int idade;
     private float altura, peso;
     private String categoria;
     private int vitorias, derrotas, empates;
 
     //Construtor
-    public Lutador(String nome, String nacionalidade, int idade, float altura, float peso, int v, int d, int e) {
+    public Lutador(String nome, String nacionalidade, String sexo, int idade, float altura, float peso, int v, int d, int e) {
         this.nome = nome;
         this.nacionalidade = nacionalidade;
+        this.sexo = sexo;
         this.idade = idade;
         this.altura = altura;
         setPeso(peso);
@@ -33,6 +34,13 @@ public class Lutador {
     }
     public void setNacionalidade(String nacionalidade) {
         this.nacionalidade = nacionalidade;
+    }
+
+    public String getSexo(){
+        return sexo;
+    }
+    public void setSexo(String sexo) {
+        this.sexo = sexo;
     }
 
     public int getIdade() {
@@ -103,7 +111,8 @@ public class Lutador {
         //Apresentação completa do lutador
         System.out.println(
         "\n Lutador: " + getNome() + 
-        "\n Nacionalidade: " + getNacionalidade() + 
+        "\n Nacionalidade: " + getNacionalidade() +
+        "\n Sexo: " + getSexo() + 
         "\n Idade: " + getIdade() + " anos " + 
         "\n Altura: " + getAltura() + "m" +
         "\n Peso: " + getPeso() + "kg" + 
@@ -116,12 +125,22 @@ public class Lutador {
     public void status() {
 
         //Apresentação resumida do lutador
-        System.out.println( 
+        if (this.getSexo().equals("Masculino")) {
+            System.out.println( 
             "\n " + getNome() + " é um " + getCategoria() + 
             "\n " + getVitorias() + " triunfos" +
             "\n " + getDerrotas() + " derrotas" +
             "\n " + getEmpates() + " empates"
             );
+        } else {
+            System.out.println( 
+            "\n " + getNome() + " é uma " + getCategoria() + 
+            "\n " + getVitorias() + " triunfos" +
+            "\n " + getDerrotas() + " derrotas" +
+            "\n " + getEmpates() + " empates"
+            );
+        }
+        
     }
     public void ganharLuta() {
         setVitorias(++this.vitorias);

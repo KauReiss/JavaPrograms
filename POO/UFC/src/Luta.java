@@ -42,20 +42,18 @@ public class Luta {
     //Métodos
     public Boolean marcarLuta(Lutador l1, Lutador l2) {
 
-        //Se os lutadores forem da mesma categoria, a luta será marcada (return true)
-        if (l1.getCategoria() == l2.getCategoria() && l1 != l2) { 
+        //Se os lutadores forem da mesma categoria, forem diferentes e do mesmo sexo, a luta será marcada (return true)
+        if (l1.getCategoria().equals(l2.getCategoria()) && l1 != l2 && l1.getSexo().equals(l2.getSexo())) {          
             setAprovada(true);
             setDesafiante(l1);
             setDesafiado(l2);
-            return aprovada;
-        } else {
-            return aprovada;
         }
+        return aprovada; 
     }
     public void lutar() {
 
         //Verificação se o atributo aprovada é igual a true, para a luta acontecer
-        if (this.aprovada == true) {
+        if (this.aprovada) {
 
             //Apresentação dos lutadores
             System.out.println("         O desafiante: \n ----------------------------- ");
@@ -74,11 +72,15 @@ public class Luta {
             if(vencedor <= 3) {
                 desafiante.ganharLuta();
                 desafiado.perderLuta();
-                System.out.println(" \n ==================================== \n E o vencedor da luta é o -> " + this.desafiante.getNome());
+                if (desafiante.getSexo().equals("Masculino")) {
+                    System.out.println(" \n ==================================== \n E o vencedor da luta é o -> " + this.desafiante.getNome());
+                } else {
+                    System.out.println(" \n ==================================== \n E a vencedora da luta é a -> " + this.desafiante.getNome());
+                }
                 
                 //A luta tem 5 rounds, se sair o numero 6 para a variável rounds, quer dizer que luta foi até o final, sem nocaute
                 if (rounds == 6) {
-                    System.out.println(" Uma vitória vinda da decisão dos juízes ao final da luta");
+                    System.out.println(" + Vitória vinda da decisão dos juízes ao final da luta");
                 } else {
                     System.out.println(" Com uma vitória por nocaute no round " + rounds);
                 }
@@ -87,11 +89,15 @@ public class Luta {
             } else if ( vencedor <= 7) {
                 desafiado.ganharLuta();
                 desafiante.perderLuta();
-                System.out.println(" \n ==================================== \n E o vencedor da luta é o -> " + this.desafiado.getNome());
+                if (desafiado.getSexo().equals("Masculino")) {
+                    System.out.println(" \n ==================================== \n E o vencedor da luta é o -> " + this.desafiado.getNome());
+                } else {
+                    System.out.println(" \n ==================================== \n E a vencedora da luta é a -> " + this.desafiado.getNome());
+                }
                 
                 //A luta tem 5 rounds, se sair o numero 6 para a variável rounds, quer dizer que luta foi até o final, sem nocaute
                 if (rounds == 6) {
-                    System.out.println(" Uma vitória vinda da decisão dos juízes ao final da luta.");
+                    System.out.println(" + Vitória vinda da decisão dos juízes ao final da luta.");
                 } else {
                     System.out.println(" Com uma vitória por nocaute no round " + rounds);
                 }
