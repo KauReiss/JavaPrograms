@@ -56,18 +56,22 @@ public abstract class Superstar {
     public int getVitorias() {
         return vitorias;
     }
-    public void setVitorias(int vitorias) {
+    protected void setVitorias(int vitorias) {
         this.vitorias = vitorias;
     }
 
     public int getDerrotas() {
         return derrotas;
     }
-    public void setDerrotas(int derrotas) {
+    protected void setDerrotas(int derrotas) {
         this.derrotas = derrotas;
     }
 
     
     public abstract void apresentar();
     public abstract void status();
+    public void naoCalouro(int vitorias, int derrotas) {
+        this.setVitorias(vitorias);
+        this.setDerrotas(derrotas);
+    }
 }
