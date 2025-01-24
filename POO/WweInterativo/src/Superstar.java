@@ -3,13 +3,13 @@ public abstract class Superstar {
     protected String nome;
     protected String nacionalidade;
     protected int idade;
-    protected float altura;
-    protected float peso;
+    protected double altura;
+    protected double peso;
     protected int vitorias;
     protected int derrotas;
 
 
-    protected Superstar(String nome, String nacionalidade, int idade, float altura, float peso) {
+    protected Superstar(String nome, String nacionalidade, int idade, double altura, double peso) {
         this.nome = nome;
         this.nacionalidade = nacionalidade;
         this.idade = idade;
@@ -39,17 +39,17 @@ public abstract class Superstar {
         this.idade = idade;
     }
 
-    public float getAltura() {
+    public double getAltura() {
         return altura;
     }
-    public void setAltura(float altura) {
+    public void setAltura(double altura) {
         this.altura = altura;
     }
 
-    public float getPeso() {
+    public double getPeso() {
         return peso;
     }
-    public void setPeso(float peso) {
+    public void setPeso(double peso) {
         this.peso = peso;
     }
 
