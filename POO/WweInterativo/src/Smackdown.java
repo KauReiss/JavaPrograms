@@ -22,7 +22,7 @@ public class Smackdown extends Superstar {
         "\n Superstar: " + getNome() + 
         "\n Nacionalidade: " + getNacionalidade() +
         "\n Idade: " + getIdade() + " anos " + 
-        "\n Altura: " + getAltura() + "m" +
+        "\n Altura: " + getAltura() + "cm" +
         "\n Peso: " + getPeso() + "kg" + 
         "\n Divisão: " + getDivisao() +
         "\n Vitorias: " + getVitorias() +

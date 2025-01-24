@@ -39,7 +39,7 @@ public abstract class Superstar {
         this.idade = idade;
     }
 
-    public double getAltura() {
+    public double getAltura() {   // formatar altura para metros
         return altura;
     }
     public void setAltura(double altura) {

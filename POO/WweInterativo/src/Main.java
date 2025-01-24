@@ -5,18 +5,18 @@ public class Main {
         
         Scanner input = new Scanner(System.in);
         System.out.println(" WWE Fight - Interativo \n =======================");
-        System.out.println("Aqui você pode cirar os seus superstars e marcar um evento para eles lutarem! \n");
+        System.out.println("Aqui você pode cirar os seus superstars e marcar um evento para eles lutarem! ");
         int opcao = 1;
         int wr = 0;
         int ws = 0;
         Raw r[] = new Raw[20];
         Smackdown s[] = new Smackdown[20];
         while (opcao != 0) {
-            System.out.println("--------- Comece escolhendo uma opção---------");
+            System.out.println("\n--------- Comece escolhendo uma opção---------");
             System.out.println(" > 1- Criar um Superstar");
             System.out.println(" > 2- Listar todos os Superstars criados");
             System.out.println(" > 3- Listar os Superstars do RAW");
-            System.out.println(" > 4-Listar os Superstars do Smackdown");
+            System.out.println(" > 4- Listar os Superstars do Smackdown");
             System.out.println(" > 5- Marcar Evento");
             System.out.println(" > 6- Listar Eventos criados");
             System.out.println(" > 7- Fazer Evento acontecer");
@@ -25,17 +25,17 @@ public class Main {
             opcao = input.nextInt();
             switch (opcao) {
                 case 1:               //ideia: criar o objeto e ir setando as características depois
-                    System.out.println("Qual será o nome do seu Superstar?");
+                    System.out.println(" Qual será o nome do seu Superstar?");
                     String name = input.next();
                     System.out.println(" Qual a nacionalidade?");
                     String nationality = input.next();
                     System.out.println(" Quantos anos tem o Superstar?");
                     int age = input.nextInt();
-                    System.out.println(" Qual a altura o Superstar?");
+                    System.out.println(" Quantos centímetros de altura tem o Superstar?");
                     double height = input.nextDouble();
                     System.out.println(" Qual o peso?");
                     double weight = input.nextDouble();
-                    System.out.println("Pra finalizar, de qual divisão ele será, Raw ou Smackdown ?");
+                    System.out.println(" Pra finalizar, de qual divisão ele será, Raw ou Smackdown ?");
                     String division = input.next();
                     if (division.equals("Raw")) {
                         r[wr] = new Raw(name, nationality, age, height, weight);
@@ -52,13 +52,17 @@ public class Main {
 
                 case 2:
                 if (wr > 0) {
-                    for (int i = 0; i <= wr; ++i) {
-                        r[i].apresentar();
+                    int ir = wr - 1;
+                    while (ir>=0) {
+                        r[ir].apresentar();
+                        ir--;
                     }
                 }
                 if (ws > 0) {
-                    for (int i = 0; i <= ws; ++i) {
-                        s[i].apresentar();
+                    int is = ws - 1;
+                    while (is>=0) {
+                        s[is].apresentar();
+                        is--;
                     }
                 }
                     
