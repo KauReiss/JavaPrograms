@@ -51,12 +51,17 @@ public class Main {
                     break;
 
                 case 2:
-                    for (int i = 0; i < wr + 1; i++) {
+                if (wr > 0) {
+                    for (int i = 0; i <= wr; ++i) {
                         r[i].apresentar();
                     }
-                    for (int i = 0; i < ws + 1; i++) {
+                }
+                if (ws > 0) {
+                    for (int i = 0; i <= ws; ++i) {
                         s[i].apresentar();
                     }
+                }
+                    
                     break;
                     
             
