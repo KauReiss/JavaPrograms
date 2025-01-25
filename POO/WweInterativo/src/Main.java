@@ -65,10 +65,32 @@ public class Main {
                         is--;
                     }
                 }
-                    
-                    break;
-                    
-            
+                break;
+                
+                case 3:
+                if (wr > 0) {
+                    int ir = wr - 1;
+                    while (ir>=0) {
+                        r[ir].apresentar();
+                        ir--;
+                    }
+                } else {
+                    System.out.println(" Não tem lutadores do RAW!");
+                }
+                break;
+
+                case 4: 
+                if (ws > 0) {
+                    int is = ws - 1;
+                    while (is>=0) {
+                        s[is].apresentar();
+                        is--;
+                    }
+                } else {
+                    System.out.println( " Não tem lutadores do Smackdown!");
+                }
+                break;
+
                 default:
                     break;
             }
