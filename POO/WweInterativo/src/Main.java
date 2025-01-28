@@ -91,6 +91,32 @@ public class Main {
                 }
                 break;
 
+                case 5:
+                    int eventoOpcao;
+                    System.out.println(" Se o evento for um Main Event, digite 1. \n Se for com superstars de mesma categoria, digite 2.");
+                    eventoOpcao = input.nextInt();
+                    if (eventoOpcao == 1 ) {
+                        if (ws > 0 && wr > 0) {
+                            System.out.println(" Escreva o nome do superstar do Smackdown que irá participar do evento:");
+                            String superstarSmack = input.next();
+                            int is = ws - 1;
+                            while (is>=0) {
+                                s[is].apresentar();
+                                is--;
+                            }
+                            System.out.println(" Agora o nome do superstar do Raw:");
+                            String superstarRaw = input.next();
+                            
+                        } else {
+                            System.out.println("Não existe superstar(s) criado(s) com o(s) nome(s) escrito(s)! \n Favor criar ou revisar se foi escrito corretamente para marcar o evento.");
+                        }
+                        
+
+                    } else if (eventoOpcao == 2) {
+
+                    } else {
+                        System.out.println("Insira um número válido que represente o evento!");
+                    }
                 default:
                     break;
             }
