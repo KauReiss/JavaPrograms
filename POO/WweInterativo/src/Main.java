@@ -1,9 +1,11 @@
+import java.util.Locale;
 import java.util.Scanner;
 
 public class Main {
     public static void main(String[] args) throws Exception {
         
         Scanner input = new Scanner(System.in);
+        input.useLocale(Locale.US);
         System.out.println(" WWE Fight - Interativo \n =======================");
         System.out.println("Aqui você pode cirar os seus superstars e marcar um evento para eles lutarem! ");
         int opcao = 1;
@@ -25,16 +27,17 @@ public class Main {
             System.out.println(" > 8- Limpar a lista de Superstars ou Eventos");
             System.out.println(" > 0- Para encerrar.");
             opcao = input.nextInt();
+            input.nextLine();  // Limpa o buffer antes de ler a próxima linha
             switch (opcao) {
 
-                case 1:               //ideia: criar o objeto e ir setando as características depois
+                case 1:
                     System.out.println(" Qual será o nome do seu Superstar?");
-                    String name = input.next();
+                    String name = input.nextLine();
                     System.out.println(" Qual a nacionalidade?");
-                    String nationality = input.next();
+                    String nationality = input.nextLine();
                     System.out.println(" Quantos anos tem o Superstar?");
                     int age = input.nextInt();
-                    System.out.println(" Quantos centímetros de altura tem o Superstar?");
+                    System.out.println(" Qual a altura do Superstar?");
                     double height = input.nextDouble();
                     System.out.println(" Qual o peso?");
                     double weight = input.nextDouble();
