@@ -1,7 +1,5 @@
 import java.util.Scanner;
 
-import org.w3c.dom.events.MutationEvent;
-
 public class Main {
     public static void main(String[] args) throws Exception {
         
@@ -11,6 +9,7 @@ public class Main {
         int opcao = 1;
         int wr = 0;
         int ws = 0;
+        int we = 0;
         EventMain e[] = new EventMain[20];
         Raw r[] = new Raw[20];
         Smackdown s[] = new Smackdown[20];
@@ -79,7 +78,7 @@ public class Main {
                         ir--;
                     }
                 } else {
-                    System.out.println(" Não tem lutadores do RAW!");
+                    System.out.println("\n Não tem lutadores do RAW!");
                 }
                 break;
 
@@ -91,23 +90,24 @@ public class Main {
                         is--;
                     }
                 } else {
-                    System.out.println( " Não tem lutadores do Smackdown!");
+                    System.out.println( "\n Não tem lutadores do Smackdown!");
                 }
                 break;
 
                 case 5:
                     int eventoOpcao;
-                    System.out.println(" Se o evento for um Main Event, digite 1. \n Se for com superstars de mesma categoria, digite 2.");
+                    System.out.println("\n Se o evento for um Main Event, digite 1. \n Se for com superstars de mesma categoria, digite 2.");
                     eventoOpcao = input.nextInt();
                     if (eventoOpcao == 1 ) {
                         if (ws > 0 && wr > 0) {
                             System.out.println(" Escreva o nome do superstar do Smackdown que irá participar do evento:");
                             String superstarSmack = input.next();
                             Boolean smackEspecif = false;
+                            int numberSmack = 0;
                             int is = ws - 1;
                             while (is>=0) {                               
                                 if (superstarSmack.equals(s[is].getNome())) {
-                                    int numberSmack = is;
+                                    numberSmack = is;
                                     smackEspecif = true;
                                 }
                                 is--;
@@ -115,20 +115,26 @@ public class Main {
                             System.out.println(" Agora o nome do superstar do Raw:");
                             String superstarRaw = input.next();
                             Boolean rawEspecif = false;
+                            int numberRaw = 0;
                             int ir = wr -1;
                             while (ir>=0) {
                                 if (superstarRaw.equals(r[ir].getNome())) {
-                                    int numberRaw = ir;
+                                    numberRaw = ir;
                                     rawEspecif = true;
                                 }
                                 ir--;
                             }
                             if (smackEspecif && rawEspecif) {
-
+                                e[we] = new EventMain(s[numberSmack], r[numberRaw]);
+                                e[we].setAprovada(true);
+                                we++;
+                                System.out.println("\n > Main event entre " + s[numberSmack].getNome() + " e " + r[numberRaw].getNome() + " está marcada e pronta para acontecer!");
+                            } else {
+                                System.out.println(" Nome(s) do(s) superstar(s) inválido(s) ou não criado(s)!");
                             }
                             
                         } else {
-                            System.out.println("Não existe superstar(s) criado(s) com o(s) nome(s) escrito(s)! \n Favor criar ou revisar se foi escrito corretamente para marcar o evento.");
+                            System.out.println("\n> Não existe superstars criados o suficiente para marcar o evento escolhido! <");
                         }
                         
 
