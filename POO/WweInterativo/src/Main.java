@@ -1,5 +1,7 @@
 import java.util.Scanner;
 
+import org.w3c.dom.events.MutationEvent;
+
 public class Main {
     public static void main(String[] args) throws Exception {
         
@@ -9,6 +11,7 @@ public class Main {
         int opcao = 1;
         int wr = 0;
         int ws = 0;
+        EventMain e[] = new EventMain[20];
         Raw r[] = new Raw[20];
         Smackdown s[] = new Smackdown[20];
         while (opcao != 0) {
@@ -24,6 +27,7 @@ public class Main {
             System.out.println(" > 0- Para encerrar.");
             opcao = input.nextInt();
             switch (opcao) {
+
                 case 1:               //ideia: criar o objeto e ir setando as características depois
                     System.out.println(" Qual será o nome do seu Superstar?");
                     String name = input.next();
@@ -99,13 +103,29 @@ public class Main {
                         if (ws > 0 && wr > 0) {
                             System.out.println(" Escreva o nome do superstar do Smackdown que irá participar do evento:");
                             String superstarSmack = input.next();
+                            Boolean smackEspecif = false;
                             int is = ws - 1;
-                            while (is>=0) {
-                                s[is].apresentar();
+                            while (is>=0) {                               
+                                if (superstarSmack.equals(s[is].getNome())) {
+                                    int numberSmack = is;
+                                    smackEspecif = true;
+                                }
                                 is--;
                             }
                             System.out.println(" Agora o nome do superstar do Raw:");
                             String superstarRaw = input.next();
+                            Boolean rawEspecif = false;
+                            int ir = wr -1;
+                            while (ir>=0) {
+                                if (superstarRaw.equals(r[ir].getNome())) {
+                                    int numberRaw = ir;
+                                    rawEspecif = true;
+                                }
+                                ir--;
+                            }
+                            if (smackEspecif && rawEspecif) {
+
+                            }
                             
                         } else {
                             System.out.println("Não existe superstar(s) criado(s) com o(s) nome(s) escrito(s)! \n Favor criar ou revisar se foi escrito corretamente para marcar o evento.");

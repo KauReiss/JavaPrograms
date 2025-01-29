@@ -1,11 +1,17 @@
-public class MainEvent {
-
+public class EventMain {
+    
     private Smackdown ladoAzul;
     private Raw ladoVermelho;
     private Boolean aprovada;
+    
+    
+    public EventMain(Smackdown ladoAzul, Raw ladoVermelho) {
+        this.ladoAzul = ladoAzul;
+        this.ladoVermelho = ladoVermelho;
+        this.aprovada = false;
+    }
 
 
-    // Getter e Setter para ladoAzul
     public Smackdown getLadoAzul() {
         return ladoAzul;
     }
@@ -13,7 +19,6 @@ public class MainEvent {
         this.ladoAzul = ladoAzul;
     }
 
-    // Getter e Setter para ladoVermelho
     public Raw getLadoVermelho() {
         return ladoVermelho;
     }
@@ -21,7 +26,6 @@ public class MainEvent {
         this.ladoVermelho = ladoVermelho;
     }
 
-    // Getter e Setter para aprovada
     public Boolean getAprovada() {
         return aprovada;
     }
